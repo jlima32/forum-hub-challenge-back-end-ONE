@@ -1,6 +1,7 @@
 package hub.forum.api.topico;
 
 import hub.forum.api.curso.Curso;
+import hub.forum.api.usuario.Usuario;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -28,12 +29,17 @@ public class Topico {
     @JoinColumn(name = "curso_id")
     private Curso curso;
 
-    public Topico(DadosCadastroTopico dados, Curso curso){
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
+
+    public Topico(DadosCadastroTopico dados, Curso curso, Usuario usuario){
         this.titulo = dados.titulo();
         this.mensagem = dados.mensagem();
         this.dataCriacao = dados.dataCriacao();
         this.estadoTopico = dados.estadoTopico();
         this.curso = curso;
+        this.usuario = usuario;
     }
 
     public Topico(DadosCadastroTopico dados) {
