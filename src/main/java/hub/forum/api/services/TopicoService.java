@@ -8,6 +8,8 @@ import hub.forum.api.topico.Topico;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TopicoService {
 
@@ -22,6 +24,10 @@ public class TopicoService {
                 .orElseThrow(() -> new IllegalArgumentException("Curso não encontrado!"));
         Topico topico = new Topico(dados,curso);
         topicoRepository.save(topico);
+    }
+
+    public List<Topico> listarTopicos(){
+        return topicoRepository.findAll();
     }
 
 
