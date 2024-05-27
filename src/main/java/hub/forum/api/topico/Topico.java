@@ -1,5 +1,6 @@
 package hub.forum.api.topico;
 
+import hub.forum.api.curso.Curso;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -23,14 +24,18 @@ public class Topico {
     @Enumerated(EnumType.STRING)
     private EstadoTopico estadoTopico;
 
-    private String curso;
+    @ManyToOne
+    @JoinColumn(name = "curso_id")
+    private Curso curso;
 
-    public Topico(DadosCadastroTopico dados){
+    public Topico(DadosCadastroTopico dados, Curso curso){
         this.titulo = dados.titulo();
         this.mensagem = dados.mensagem();
         this.dataCriacao = dados.dataCriacao();
         this.estadoTopico = dados.estadoTopico();
-        this.curso = dados.curso();
+        this.curso = curso;
     }
 
+    public Topico(DadosCadastroTopico dados) {
+    }
 }

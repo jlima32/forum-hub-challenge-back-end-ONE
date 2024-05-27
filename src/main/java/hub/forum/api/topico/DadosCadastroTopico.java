@@ -4,6 +4,10 @@ public record DadosCadastroTopico(String titulo,
                                   String mensagem,
                                   String dataCriacao,
                                   EstadoTopico estadoTopico,
-                                  String curso
+                                  Long cursoId
                                   ) {
+
+    public Long cursoId() {
+        return cursoId;
+    }
 }

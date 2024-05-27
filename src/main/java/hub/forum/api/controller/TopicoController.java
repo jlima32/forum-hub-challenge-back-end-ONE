@@ -1,6 +1,7 @@
 package hub.forum.api.controller;
 
 import hub.forum.api.repository.TopicoRepository;
+import hub.forum.api.services.TopicoService;
 import hub.forum.api.topico.DadosCadastroTopico;
 import hub.forum.api.topico.Topico;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class TopicoController {
 
     @Autowired
-    private TopicoRepository repository;
+    private TopicoService topicoService;
 
     @PostMapping
     @Transactional
     public void cadastrar(@RequestBody DadosCadastroTopico dados){
-        repository.save(new Topico(dados));
+        topicoService.criarTopico(dados);
     }
 }
