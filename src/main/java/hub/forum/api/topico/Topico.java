@@ -25,4 +25,12 @@ public class Topico {
 
     private String curso;
 
+    public Topico(DadosCadastroTopico dados){
+        this.titulo = dados.titulo();
+        this.mensagem = dados.mensagem();
+        this.dataCriacao = dados.dataCriacao();
+        this.estadoTopico = dados.estadoTopico();
+        this.curso = dados.curso();
+    }
+
 }
