@@ -20,5 +20,10 @@ public class Usuario {
     private String email;
     private String senha;
 
+    public Usuario(DadosCadastroUsuario dados){
+        this.nome = dados.nome();
+        this.email = dados.email();
+        this.senha = dados.senha();
+    }
 
 }
