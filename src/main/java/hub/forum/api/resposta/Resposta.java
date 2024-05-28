@@ -10,6 +10,8 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Table(name = "respostas")
 @Entity(name = "Resposta")
 @Getter
@@ -27,7 +29,8 @@ public class Resposta {
     @JsonBackReference
     private Topico topico;
 
-    private String dataCriacao;
+    @Column(name= "data_criacao")
+    private LocalDateTime dataCriacao;
 
     @ManyToOne
     @JoinColumn(name = "usuario_id")
@@ -39,9 +42,12 @@ public class Resposta {
     public Resposta(DadosCadastroResposta dados, Topico topico, Usuario usuario){
         this.mensagem = dados.mensagem();
         this.topico = topico;
-        this.dataCriacao = dados.dataCriacao();
         this.usuario = usuario;
         this.solucao = dados.solucao();
     }
 
+
+    public void setDataCriacao(LocalDateTime dataCriacao) {
+        this.dataCriacao = dataCriacao;
+    }
 }

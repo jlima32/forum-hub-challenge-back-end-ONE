@@ -1,0 +1,1 @@
+ALTER TABLE respostas MODIFY COLUMN data_criacao DATETIME;

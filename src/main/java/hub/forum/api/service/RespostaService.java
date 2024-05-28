@@ -11,6 +11,8 @@ import hub.forum.api.usuario.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+
 @Service
 public class RespostaService {
     @Autowired
@@ -30,6 +32,7 @@ public class RespostaService {
                 .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado"));
 
         Resposta resposta = new Resposta(dados, topico, usuario);
+        resposta.setDataCriacao(LocalDateTime.now());
         return respostaRepository.save(resposta);
 
     }
