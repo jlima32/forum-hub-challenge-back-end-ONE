@@ -1,6 +1,7 @@
 package hub.forum.api.services;
 
 import hub.forum.api.curso.Curso;
+import hub.forum.api.dto.TopicoDto;
 import hub.forum.api.repository.CursoRepository;
 import hub.forum.api.repository.TopicoRepository;
 import hub.forum.api.repository.UsuarioRepository;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class TopicoService {
@@ -33,9 +35,12 @@ public class TopicoService {
         topicoRepository.save(topico);
     }
 
-    public List<Topico> listarTopicos(){
-        return topicoRepository.findAll();
-    }
+   public List<TopicoDto> listarTopicos() {
+        List<Topico> topicos = topicoRepository.findAll();
+        return topicos.stream()
+                .map(TopicoDto::new)
+                .collect(Collectors.toList());
+   }
 
 
 }

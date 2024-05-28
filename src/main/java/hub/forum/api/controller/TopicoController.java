@@ -1,8 +1,8 @@
 package hub.forum.api.controller;
 
+import hub.forum.api.dto.TopicoDto;
 import hub.forum.api.services.TopicoService;
 import hub.forum.api.topico.DadosCadastroTopico;
-import hub.forum.api.topico.Topico;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +23,7 @@ public class TopicoController {
     }
 
     @GetMapping
-    public List<Topico> listarTopicos(){
+    public List<TopicoDto> listarTopicos(){
         return topicoService.listarTopicos();
     }
 }

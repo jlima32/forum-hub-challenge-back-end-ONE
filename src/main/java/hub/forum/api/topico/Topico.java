@@ -37,6 +37,7 @@ public class Topico {
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
+
     @OneToMany(mappedBy = "topico", cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<Resposta> respostas;
