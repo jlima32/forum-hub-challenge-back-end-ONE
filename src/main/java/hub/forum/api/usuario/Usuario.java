@@ -1,5 +1,6 @@
 package hub.forum.api.usuario;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -15,9 +16,11 @@ import lombok.NoArgsConstructor;
 public class Usuario {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnore
     private Long id;
     private String nome;
     private String email;
+    @JsonIgnore
     private String senha;
 
     public Usuario(DadosCadastroUsuario dados){
