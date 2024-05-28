@@ -18,6 +18,7 @@ public class TopicoDto {
     private String mensagem;
     private String dataCriacao;
     private String autor;
+    private String curso;
     private List<RespostaDto> respostas;
 
 
@@ -27,6 +28,7 @@ public class TopicoDto {
         this.mensagem = topico.getMensagem();
         this.dataCriacao = topico.getDataCriacao();
         this.autor = topico.getUsuario().getNome();
+        this.curso = topico.getCurso().getNome();
         this.respostas = topico.getRespostas().stream()
                 .map(RespostaDto::new)
                 .collect(Collectors.toList());

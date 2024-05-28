@@ -1,4 +1,4 @@
-package hub.forum.api.services;
+package hub.forum.api.service;
 
 
 import hub.forum.api.repository.RespostaRepository;

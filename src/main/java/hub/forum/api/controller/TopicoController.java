@@ -1,7 +1,7 @@
 package hub.forum.api.controller;
 
 import hub.forum.api.dto.TopicoDto;
-import hub.forum.api.services.TopicoService;
+import hub.forum.api.service.TopicoService;
 import hub.forum.api.topico.DadosCadastroTopico;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

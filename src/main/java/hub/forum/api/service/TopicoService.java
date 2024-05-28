@@ -1,4 +1,4 @@
-package hub.forum.api.services;
+package hub.forum.api.service;
 
 import hub.forum.api.curso.Curso;
 import hub.forum.api.dto.TopicoDto;
@@ -44,6 +44,8 @@ public class TopicoService {
                 .map(TopicoDto::new)
                 .collect(Collectors.toList());
    }
+
+
 
 
 }
