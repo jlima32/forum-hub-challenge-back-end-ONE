@@ -2,6 +2,7 @@ package hub.forum.api.resposta;
 
 
 import hub.forum.api.topico.Topico;
+import hub.forum.api.usuario.Usuario;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -25,16 +26,19 @@ public class Resposta {
     private Topico topico;
 
     private String dataCriacao;
-    private Long usuarioId;
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
 
     @Column(columnDefinition = "TINYINT(1)")
     private Boolean solucao;
 
-    public Resposta(DadosCadastroResposta dados, Topico topico){
+    public Resposta(DadosCadastroResposta dados, Topico topico, Usuario usuario){
         this.mensagem = dados.mensagem();
         this.topico = topico;
         this.dataCriacao = dados.dataCriacao();
-        this.usuarioId = dados.usuarioId();
+        this.usuario = usuario;
         this.solucao = dados.solucao();
     }
 
