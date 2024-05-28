@@ -34,6 +34,9 @@ public class TopicoService {
         Usuario usuario = usuarioRepository.findById(dados.usuarioId())
                 .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado!"));
         Topico topico = new Topico(dados,curso,usuario);
+        if (topicoRepository.existsByTituloAndMensagem(topico.getTitulo(),topico.getMensagem())){
+            throw new RuntimeException("Já existe um tópico com o mesmo título e mensagem");
+        }
         topicoRepository.save(topico);
         return new TopicoDto(topico);
     }
