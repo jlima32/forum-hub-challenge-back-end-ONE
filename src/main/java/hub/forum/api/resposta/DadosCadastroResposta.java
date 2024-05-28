@@ -4,5 +4,5 @@ public record DadosCadastroResposta(String mensagem,
                                     Long topicoId,
                                     String dataCriacao,
                                     Long usuarioId,
-                                    boolean solucao) {
+                                    Boolean solucao) {
 }
