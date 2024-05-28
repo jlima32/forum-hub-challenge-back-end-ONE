@@ -11,6 +11,7 @@ import hub.forum.api.usuario.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -37,6 +38,7 @@ public class TopicoService {
         if (topicoRepository.existsByTituloAndMensagem(topico.getTitulo(),topico.getMensagem())){
             throw new RuntimeException("Já existe um tópico com o mesmo título e mensagem");
         }
+        topico.setDataCriacao(LocalDateTime.now());
         topicoRepository.save(topico);
         return new TopicoDto(topico);
     }

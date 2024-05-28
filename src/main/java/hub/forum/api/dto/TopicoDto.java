@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,10 +26,11 @@ public class TopicoDto {
 
 
     public TopicoDto(Topico topico){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         this.id = topico.getId();
         this.titulo = topico.getTitulo();
         this.mensagem = topico.getMensagem();
-        this.dataCriacao = topico.getDataCriacao();
+        this.dataCriacao = topico.getDataCriacao().format(formatter);
         this.autor = topico.getUsuario().getNome();
         this.curso = topico.getCurso().getNome();
         this.status = String.valueOf(EstadoTopico.fromString(String.valueOf(topico.getEstadoTopico())));

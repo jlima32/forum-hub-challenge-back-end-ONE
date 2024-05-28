@@ -10,6 +10,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +26,8 @@ public class Topico {
     private Long id;
     private String titulo;
     private String mensagem;
-    private String dataCriacao;
+    @Column(name = "data_criacao")
+    private LocalDateTime dataCriacao;
 
     @Enumerated(EnumType.STRING)
     private EstadoTopico estadoTopico;
@@ -46,12 +48,15 @@ public class Topico {
     public Topico(DadosCadastroTopico dados, Curso curso, Usuario usuario){
         this.titulo = dados.titulo();
         this.mensagem = dados.mensagem();
-        this.dataCriacao = dados.dataCriacao();
         this.estadoTopico = dados.estadoTopico();
         this.curso = curso;
         this.usuario = usuario;
     }
 
     public Topico(DadosCadastroTopico dados) {
+    }
+
+    public void setDataCriacao(LocalDateTime dataCriacao) {
+        this.dataCriacao = dataCriacao;
     }
 }

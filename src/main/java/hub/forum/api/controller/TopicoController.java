@@ -29,6 +29,7 @@ public class TopicoController {
 
     @GetMapping
     public List<TopicoDto> listarTopicos(){
+
         return topicoService.listarTopicos();
     }
 }
