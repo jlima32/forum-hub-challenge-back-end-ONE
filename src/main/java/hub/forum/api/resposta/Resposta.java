@@ -21,6 +21,8 @@ public class Resposta {
     private Long topicoId;
     private String dataCriacao;
     private Long usuarioId;
+
+    @Column(columnDefinition = "TINYINT(1)")
     private Boolean solucao;
 
     public Resposta(DadosCadastroResposta dados){
