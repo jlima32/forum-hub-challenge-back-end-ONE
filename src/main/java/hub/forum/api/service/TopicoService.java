@@ -1,6 +1,7 @@
 package hub.forum.api.service;
 
 import hub.forum.api.curso.Curso;
+import hub.forum.api.dto.AtualizacaoTopicoDto;
 import hub.forum.api.dto.TopicoDto;
 import hub.forum.api.repository.CursoRepository;
 import hub.forum.api.repository.TopicoRepository;
@@ -14,9 +15,11 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -59,6 +62,21 @@ public class TopicoService {
         Topico topico = topicoRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Tópico não encontrado"));
         return new TopicoDto(topico);
+   }
+
+   @Transactional
+    public TopicoDto atualizarTopico(Long id, AtualizacaoTopicoDto dadosAtualizacao){
+       Optional<Topico> optionalTopico = topicoRepository.findById(id);
+       if (optionalTopico.isPresent()){
+           Topico topico = optionalTopico.get();
+           topico.setTitulo(dadosAtualizacao.getTitulo());
+           topico.setMensagem(dadosAtualizacao.getMensagem());
+           topico.setEstadoTopico(dadosAtualizacao.getEstadoTopico());
+
+           return new TopicoDto();
+       }
+
+       throw new IllegalArgumentException("Tópico não encontrado!");
    }
 
 

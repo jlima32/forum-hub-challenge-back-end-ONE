@@ -60,4 +60,20 @@ public class Topico {
     public void setDataCriacao(LocalDateTime dataCriacao) {
         this.dataCriacao = dataCriacao;
     }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
+    }
+
+    public void setEstadoTopico(EstadoTopico estadoTopico) {
+        this.estadoTopico = estadoTopico;
+    }
+
+    public void setCurso(Curso curso) {
+        this.curso = curso;
+    }
 }

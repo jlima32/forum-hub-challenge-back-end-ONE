@@ -1,5 +1,6 @@
 package hub.forum.api.controller;
 
+import hub.forum.api.dto.AtualizacaoTopicoDto;
 import hub.forum.api.dto.TopicoDto;
 import hub.forum.api.service.TopicoService;
 import hub.forum.api.topico.DadosCadastroTopico;
@@ -36,6 +37,11 @@ public class TopicoController {
     @GetMapping("/{id}")
     public TopicoDto buscarPorId(@PathVariable Long id){
         return topicoService.buscarPorId(id);
+    }
+
+    @PutMapping("/{id}")
+    public TopicoDto atualizarTopico(@PathVariable Long id, @RequestBody @Validated AtualizacaoTopicoDto dadosAtualizacao){
+        return topicoService.atualizarTopico(id, dadosAtualizacao);
     }
 
 
