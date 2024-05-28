@@ -23,4 +23,12 @@ public class Resposta {
     private Long usuarioId;
     private Boolean solucao;
 
+    public Resposta(DadosCadastroResposta dados){
+        this.mensagem = dados.mensagem();
+        this.topicoId = dados.topicoId();
+        this.dataCriacao = dados.dataCriacao();
+        this.usuarioId = dados.usuarioId();
+        this.solucao = dados.solucao();
+    }
+
 }
