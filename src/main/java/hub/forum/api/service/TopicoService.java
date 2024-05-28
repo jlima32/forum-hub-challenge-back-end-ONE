@@ -9,6 +9,10 @@ import hub.forum.api.topico.DadosCadastroTopico;
 import hub.forum.api.topico.Topico;
 import hub.forum.api.usuario.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -44,10 +48,11 @@ public class TopicoService {
     }
 
    public List<TopicoDto> listarTopicos() {
-        List<Topico> topicos = topicoRepository.findAll();
-        return topicos.stream()
-                .map(TopicoDto::new)
-                .collect(Collectors.toList());
+       Pageable pageable = PageRequest.of(0,10, Sort.by("dataCriacao").ascending());
+       Page<Topico> topicosPage = topicoRepository.findAll(pageable);
+       return topicosPage.stream()
+               .map(TopicoDto::new)
+               .collect(Collectors.toList());
    }
 
 
