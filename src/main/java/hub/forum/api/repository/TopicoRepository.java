@@ -9,5 +9,6 @@ public interface TopicoRepository extends JpaRepository<Topico, Long> {
 
     Page<Topico> findAll(Pageable pageable);
 
+
     boolean existsByTituloAndMensagem(String titulo, String mensagem);
 }

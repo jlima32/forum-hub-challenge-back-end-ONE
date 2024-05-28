@@ -26,6 +26,7 @@ public class Topico {
     private Long id;
     private String titulo;
     private String mensagem;
+
     @Column(name = "data_criacao")
     private LocalDateTime dataCriacao;
 

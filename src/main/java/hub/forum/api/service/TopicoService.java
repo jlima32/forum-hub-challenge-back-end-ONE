@@ -55,6 +55,13 @@ public class TopicoService {
                .collect(Collectors.toList());
    }
 
+   public TopicoDto buscarPorId(Long id){
+        Topico topico = topicoRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Tópico não encontrado"));
+        return new TopicoDto(topico);
+   }
+
+
 
 
 

@@ -32,4 +32,12 @@ public class TopicoController {
 
         return topicoService.listarTopicos();
     }
+
+    @GetMapping("/{id}")
+    public TopicoDto buscarPorId(@PathVariable Long id){
+        return topicoService.buscarPorId(id);
+    }
+
+
+
 }
