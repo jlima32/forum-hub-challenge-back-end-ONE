@@ -1,6 +1,7 @@
 package hub.forum.api.dto;
 
 
+import hub.forum.api.topico.EstadoTopico;
 import hub.forum.api.topico.Topico;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,6 +20,7 @@ public class TopicoDto {
     private String dataCriacao;
     private String autor;
     private String curso;
+    private String status;
     private List<RespostaDto> respostas;
 
 
@@ -29,6 +31,7 @@ public class TopicoDto {
         this.dataCriacao = topico.getDataCriacao();
         this.autor = topico.getUsuario().getNome();
         this.curso = topico.getCurso().getNome();
+        this.status = String.valueOf(EstadoTopico.fromString(String.valueOf(topico.getEstadoTopico())));
         this.respostas = topico.getRespostas().stream()
                 .map(RespostaDto::new)
                 .collect(Collectors.toList());
