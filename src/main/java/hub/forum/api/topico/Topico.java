@@ -10,6 +10,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Table(name = "topicos")
@@ -40,7 +41,7 @@ public class Topico {
 
     @OneToMany(mappedBy = "topico", cascade = CascadeType.ALL)
     @JsonManagedReference
-    private List<Resposta> respostas;
+    private List<Resposta> respostas = new ArrayList<>();
 
     public Topico(DadosCadastroTopico dados, Curso curso, Usuario usuario){
         this.titulo = dados.titulo();

@@ -26,13 +26,16 @@ public class TopicoService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    public void criarTopico(DadosCadastroTopico dados){
+
+
+    public TopicoDto criarTopico(DadosCadastroTopico dados){
         Curso curso = cursoRepository.findById(dados.cursoId())
                 .orElseThrow(() -> new IllegalArgumentException("Curso não encontrado!"));
         Usuario usuario = usuarioRepository.findById(dados.usuarioId())
                 .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado!"));
         Topico topico = new Topico(dados,curso,usuario);
         topicoRepository.save(topico);
+        return new TopicoDto(topico);
     }
 
    public List<TopicoDto> listarTopicos() {
