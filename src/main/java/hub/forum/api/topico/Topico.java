@@ -1,12 +1,16 @@
 package hub.forum.api.topico;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import hub.forum.api.curso.Curso;
+import hub.forum.api.resposta.Resposta;
 import hub.forum.api.usuario.Usuario;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Table(name = "topicos")
 @Entity(name = "Topico")
@@ -32,6 +36,10 @@ public class Topico {
     @ManyToOne
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
+
+    @OneToMany(mappedBy = "topico", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<Resposta> respostas;
 
     public Topico(DadosCadastroTopico dados, Curso curso, Usuario usuario){
         this.titulo = dados.titulo();

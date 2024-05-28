@@ -1,6 +1,7 @@
 package hub.forum.api.resposta;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import hub.forum.api.topico.Topico;
 import hub.forum.api.usuario.Usuario;
 import jakarta.persistence.*;
@@ -23,6 +24,7 @@ public class Resposta {
 
     @ManyToOne
     @JoinColumn(name = "topico_id")
+    @JsonBackReference
     private Topico topico;
 
     private String dataCriacao;
