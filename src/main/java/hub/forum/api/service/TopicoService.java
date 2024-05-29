@@ -65,7 +65,7 @@ public class TopicoService {
    }
 
    @Transactional
-    public TopicoDto atualizarTopico(Long id, AtualizacaoTopicoDto dadosAtualizacao){
+   public TopicoDto atualizarTopico(Long id, AtualizacaoTopicoDto dadosAtualizacao){
        Optional<Topico> optionalTopico = topicoRepository.findById(id);
        if (optionalTopico.isPresent()){
            Topico topico = optionalTopico.get();
@@ -74,9 +74,20 @@ public class TopicoService {
            topico.setEstadoTopico(dadosAtualizacao.getEstadoTopico());
 
            return new TopicoDto(topico);
+       }else{
+        throw new IllegalArgumentException("Tópico não encontrado!");
        }
 
-       throw new IllegalArgumentException("Tópico não encontrado!");
+   }
+
+   @Transactional
+   public void deletarTopico(Long id){
+        Optional<Topico> optionalTopico = topicoRepository.findById(id);
+        if (optionalTopico.isPresent()){
+            topicoRepository.deleteById(id);
+        }else{
+            throw new IllegalArgumentException("Tópico não encontrado!");
+        }
    }
 
 

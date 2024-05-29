@@ -44,6 +44,11 @@ public class TopicoController {
         return topicoService.atualizarTopico(id, dadosAtualizacao);
     }
 
+    @DeleteMapping("/{id}")
+    public void deletarTopico(@PathVariable Long id){
+        topicoService.deletarTopico(id);
+    }
+
 
 
 }
