@@ -10,6 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriBuilder;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
 
@@ -23,9 +25,11 @@ public class TopicoController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity<TopicoDto> cadastrar(@RequestBody @Valid DadosCadastroTopico dados){
+    public ResponseEntity<TopicoDto> cadastrar(@RequestBody @Valid DadosCadastroTopico dados, UriComponentsBuilder uriBuilder){
         TopicoDto topicoDto = topicoService.criarTopico(dados);
-        return ResponseEntity.ok(topicoDto);
+
+        var uri = uriBuilder.path("/topicos/{id}").buildAndExpand(topicoDto.getId()).toUri();
+        return ResponseEntity.created(uri).body(topicoDto);
     }
 
     @GetMapping
