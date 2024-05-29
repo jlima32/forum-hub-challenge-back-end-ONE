@@ -29,9 +29,9 @@ public class TopicoController {
     }
 
     @GetMapping
-    public List<TopicoDto> listarTopicos(){
-
-        return topicoService.listarTopicos();
+    public ResponseEntity<List<TopicoDto>> listarTopicos(){
+        var topicos =  topicoService.listarTopicos();
+        return ResponseEntity.ok(topicos);
     }
 
     @GetMapping("/{id}")
@@ -40,8 +40,9 @@ public class TopicoController {
     }
 
     @PutMapping("/{id}")
-    public TopicoDto atualizarTopico(@PathVariable Long id, @RequestBody @Validated AtualizacaoTopicoDto dadosAtualizacao){
-        return topicoService.atualizarTopico(id, dadosAtualizacao);
+    public ResponseEntity atualizarTopico(@PathVariable Long id, @RequestBody @Validated AtualizacaoTopicoDto dadosAtualizacao){
+         topicoService.atualizarTopico(id, dadosAtualizacao);
+        return ResponseEntity.ok(dadosAtualizacao);
     }
 
     @DeleteMapping("/{id}")
