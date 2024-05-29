@@ -1,7 +1,7 @@
 package hub.forum.api.controller;
 
-import hub.forum.api.curso.Curso;
-import hub.forum.api.curso.DadosCadastroCurso;
+import hub.forum.api.domain.curso.Curso;
+import hub.forum.api.domain.curso.DadosCadastroCurso;
 import hub.forum.api.repository.CursoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;

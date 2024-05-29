@@ -1,6 +1,6 @@
 package hub.forum.api.dto;
 
-import hub.forum.api.topico.EstadoTopico;
+import hub.forum.api.domain.topico.EstadoTopico;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;

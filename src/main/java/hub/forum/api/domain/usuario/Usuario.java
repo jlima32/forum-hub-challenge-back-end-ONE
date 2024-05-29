@@ -1,4 +1,4 @@
-package hub.forum.api.usuario;
+package hub.forum.api.domain.usuario;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;

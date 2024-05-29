@@ -1,9 +1,9 @@
-package hub.forum.api.topico;
+package hub.forum.api.domain.topico;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import hub.forum.api.curso.Curso;
-import hub.forum.api.resposta.Resposta;
-import hub.forum.api.usuario.Usuario;
+import hub.forum.api.domain.curso.Curso;
+import hub.forum.api.domain.resposta.Resposta;
+import hub.forum.api.domain.usuario.Usuario;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

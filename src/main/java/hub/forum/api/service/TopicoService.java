@@ -1,14 +1,14 @@
 package hub.forum.api.service;
 
-import hub.forum.api.curso.Curso;
+import hub.forum.api.domain.curso.Curso;
 import hub.forum.api.dto.AtualizacaoTopicoDto;
 import hub.forum.api.dto.TopicoDto;
 import hub.forum.api.repository.CursoRepository;
 import hub.forum.api.repository.TopicoRepository;
 import hub.forum.api.repository.UsuarioRepository;
-import hub.forum.api.topico.DadosCadastroTopico;
-import hub.forum.api.topico.Topico;
-import hub.forum.api.usuario.Usuario;
+import hub.forum.api.domain.topico.DadosCadastroTopico;
+import hub.forum.api.domain.topico.Topico;
+import hub.forum.api.domain.usuario.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

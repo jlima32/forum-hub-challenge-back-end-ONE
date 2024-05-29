@@ -1,8 +1,8 @@
 package hub.forum.api.dto;
 
 
-import hub.forum.api.topico.EstadoTopico;
-import hub.forum.api.topico.Topico;
+import hub.forum.api.domain.topico.EstadoTopico;
+import hub.forum.api.domain.topico.Topico;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

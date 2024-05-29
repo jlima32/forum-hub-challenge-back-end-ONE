@@ -4,10 +4,10 @@ package hub.forum.api.service;
 import hub.forum.api.repository.RespostaRepository;
 import hub.forum.api.repository.TopicoRepository;
 import hub.forum.api.repository.UsuarioRepository;
-import hub.forum.api.resposta.DadosCadastroResposta;
-import hub.forum.api.resposta.Resposta;
-import hub.forum.api.topico.Topico;
-import hub.forum.api.usuario.Usuario;
+import hub.forum.api.domain.resposta.DadosCadastroResposta;
+import hub.forum.api.domain.resposta.Resposta;
+import hub.forum.api.domain.topico.Topico;
+import hub.forum.api.domain.usuario.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

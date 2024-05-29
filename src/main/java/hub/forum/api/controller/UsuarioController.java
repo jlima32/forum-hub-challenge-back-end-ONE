@@ -1,8 +1,8 @@
 package hub.forum.api.controller;
 
 import hub.forum.api.repository.UsuarioRepository;
-import hub.forum.api.usuario.DadosCadastroUsuario;
-import hub.forum.api.usuario.Usuario;
+import hub.forum.api.domain.usuario.DadosCadastroUsuario;
+import hub.forum.api.domain.usuario.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PostMapping;

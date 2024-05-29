@@ -1,6 +1,6 @@
 package hub.forum.api.dto;
 
-import hub.forum.api.resposta.Resposta;
+import hub.forum.api.domain.resposta.Resposta;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

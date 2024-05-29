@@ -3,14 +3,13 @@ package hub.forum.api.controller;
 import hub.forum.api.dto.AtualizacaoTopicoDto;
 import hub.forum.api.dto.TopicoDto;
 import hub.forum.api.service.TopicoService;
-import hub.forum.api.topico.DadosCadastroTopico;
+import hub.forum.api.domain.topico.DadosCadastroTopico;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.util.UriBuilder;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
