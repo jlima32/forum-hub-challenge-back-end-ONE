@@ -39,8 +39,9 @@ public class TopicoController {
     }
 
     @GetMapping("/{id}")
-    public TopicoDto buscarPorId(@PathVariable Long id){
-        return topicoService.buscarPorId(id);
+    public ResponseEntity buscarPorId(@PathVariable Long id){
+        var topico = topicoService.buscarPorId(id);
+        return ResponseEntity.ok(topico);
     }
 
     @PutMapping("/{id}")
