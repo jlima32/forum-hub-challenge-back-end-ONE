@@ -45,8 +45,10 @@ public class TopicoController {
     }
 
     @DeleteMapping("/{id}")
-    public void deletarTopico(@PathVariable Long id){
+    public ResponseEntity deletarTopico(@PathVariable Long id){
         topicoService.deletarTopico(id);
+
+        return ResponseEntity.noContent().build();
     }
 
 
