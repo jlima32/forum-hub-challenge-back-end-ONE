@@ -73,7 +73,7 @@ public class TopicoService {
            topico.setMensagem(dadosAtualizacao.getMensagem());
            topico.setEstadoTopico(dadosAtualizacao.getEstadoTopico());
 
-           return new TopicoDto();
+           return new TopicoDto(topico);
        }
 
        throw new IllegalArgumentException("Tópico não encontrado!");
