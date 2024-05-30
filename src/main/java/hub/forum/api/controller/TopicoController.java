@@ -31,7 +31,7 @@ public class TopicoController {
         return ResponseEntity.created(uri).body(topicoDto);
     }
 
-    @GetMapping
+    @GetMapping()
     public ResponseEntity<List<TopicoDto>> listarTopicos(){
         var topicos =  topicoService.listarTopicos();
         return ResponseEntity.ok(topicos);
