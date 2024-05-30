@@ -3,6 +3,7 @@ package hub.forum.api.service;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
+import com.auth0.jwt.exceptions.JWTVerificationException;
 import hub.forum.api.domain.usuario.Usuario;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -23,11 +24,26 @@ public class TokenService {
             var algoritmo = Algorithm.HMAC256(secret);
             return JWT.create()
                     .withIssuer("API Forum.hub")
-                    .withSubject(String.valueOf(usuario.getId()))
+                    .withSubject(String.valueOf(usuario.getEmail()))
                     .withExpiresAt(dataExpiracao())
                     .sign(algoritmo);
         } catch (JWTCreationException exception){
           throw new RuntimeException(("erro ao gerar token JWT"));
+        }
+    }
+
+    public String getSubject(String tokenJWT){
+        try {
+            var algoritmo = Algorithm.HMAC256(secret);
+            return JWT.require(algoritmo)
+                    // specify any specific claim validations
+                    .withIssuer("API Forum.hub")
+                    // reusable verifier instance
+                    .build()
+                    .verify(tokenJWT)
+                    .getSubject();
+        } catch (JWTVerificationException exception){
+            throw new RuntimeException("Token inválido ou expirado");
         }
     }
 
