@@ -3,6 +3,7 @@ package hub.forum.api.controller;
 import hub.forum.api.domain.resposta.DadosCadastroResposta;
 import hub.forum.api.domain.resposta.Resposta;
 import hub.forum.api.service.RespostaService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,7 +18,7 @@ public class RespostaController {
     private RespostaService respostaService;
 
     @PostMapping
-    public Resposta cadastrar(@RequestBody DadosCadastroResposta dados){
+    public Resposta cadastrar(@RequestBody @Valid DadosCadastroResposta dados){
         return respostaService.cadastrarResposta(dados);
     }
 
