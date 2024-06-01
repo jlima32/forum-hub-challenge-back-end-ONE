@@ -1,6 +1,7 @@
 package hub.forum.api.dto;
 
 
+import hub.forum.api.domain.curso.Curso;
 import hub.forum.api.domain.topico.EstadoTopico;
 import hub.forum.api.domain.topico.Topico;
 import lombok.AllArgsConstructor;
@@ -20,7 +21,7 @@ public class TopicoDto {
     private String mensagem;
     private String dataCriacao;
     private String autor;
-    private String curso;
+    private CursoDto curso;
     private String status;
     private List<RespostaDto> respostas;
 
@@ -32,7 +33,7 @@ public class TopicoDto {
         this.mensagem = topico.getMensagem();
         this.dataCriacao = topico.getDataCriacao().format(formatter);
         this.autor = topico.getUsuario().getNome();
-        this.curso = topico.getCurso().getNome();
+        this.curso = new CursoDto(topico.getCurso());
         this.status = String.valueOf(EstadoTopico.fromString(String.valueOf(topico.getEstadoTopico())));
         this.respostas = topico.getRespostas().stream()
                 .map(RespostaDto::new)
