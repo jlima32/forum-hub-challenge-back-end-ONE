@@ -25,6 +25,7 @@ public class TokenService {
             return JWT.create()
                     .withIssuer("API Forum.hub")
                     .withSubject(String.valueOf(usuario.getEmail()))
+                    .withClaim("id", usuario.getId())
                     .withExpiresAt(dataExpiracao())
                     .sign(algoritmo);
         } catch (JWTCreationException exception){
@@ -46,6 +47,7 @@ public class TokenService {
             throw new RuntimeException("Token inválido ou expirado");
         }
     }
+
 
     private Instant dataExpiracao() {
         return LocalDateTime.now().plusHours(2).toInstant(ZoneOffset.of("-03:00"));

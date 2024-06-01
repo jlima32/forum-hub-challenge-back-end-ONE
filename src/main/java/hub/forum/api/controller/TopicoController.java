@@ -1,12 +1,15 @@
 package hub.forum.api.controller;
 
+import hub.forum.api.domain.usuario.Usuario;
 import hub.forum.api.dto.AtualizacaoTopicoDto;
 import hub.forum.api.dto.TopicoDto;
+import hub.forum.api.dto.UsuarioDto;
 import hub.forum.api.service.TopicoService;
 import hub.forum.api.domain.topico.DadosCadastroTopico;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -50,8 +53,8 @@ public class TopicoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity deletarTopico(@PathVariable Long id){
-        topicoService.deletarTopico(id);
+    public ResponseEntity deletarTopico(@PathVariable Long id, Long idUsuario, @AuthenticationPrincipal Usuario logado){
+        topicoService.deletarTopico(id, logado.getId());
 
         return ResponseEntity.noContent().build();
     }

@@ -4,11 +4,11 @@ import hub.forum.api.domain.curso.Curso;
 import hub.forum.api.domain.curso.DadosCadastroCurso;
 import hub.forum.api.repository.CursoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("cursos")
@@ -23,4 +23,10 @@ public class CursoController {
         repository.save(new Curso(dados));
     }
 
+
+    @GetMapping
+    public ResponseEntity<List<Curso>> listarCursos(){
+        var cursos = repository.findAll();
+        return ResponseEntity.ok(cursos);
+    }
 }

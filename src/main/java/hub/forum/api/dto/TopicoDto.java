@@ -20,7 +20,7 @@ public class TopicoDto {
     private String titulo;
     private String mensagem;
     private String dataCriacao;
-    private String autor;
+    private UsuarioDto autor;
     private CursoDto curso;
     private String status;
     private List<RespostaDto> respostas;
@@ -32,7 +32,7 @@ public class TopicoDto {
         this.titulo = topico.getTitulo();
         this.mensagem = topico.getMensagem();
         this.dataCriacao = topico.getDataCriacao().format(formatter);
-        this.autor = topico.getUsuario().getNome();
+        this.autor = new UsuarioDto(topico.getUsuario());
         this.curso = new CursoDto(topico.getCurso());
         this.status = String.valueOf(EstadoTopico.fromString(String.valueOf(topico.getEstadoTopico())));
         this.respostas = topico.getRespostas().stream()
