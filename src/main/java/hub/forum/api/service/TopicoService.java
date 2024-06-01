@@ -73,17 +73,22 @@ public class TopicoService {
    }
 
    @Transactional
-   public TopicoDto atualizarTopico(Long id, AtualizacaoTopicoDto dadosAtualizacao){
+   public TopicoDto atualizarTopico(Long id, Long idUsuario, AtualizacaoTopicoDto dadosAtualizacao){
        Optional<Topico> optionalTopico = topicoRepository.findById(id);
        if (optionalTopico.isPresent()){
            Topico topico = optionalTopico.get();
-           topico.setTitulo(dadosAtualizacao.getTitulo());
-           topico.setMensagem(dadosAtualizacao.getMensagem());
-           topico.setEstadoTopico(dadosAtualizacao.getEstadoTopico());
+           if (topico.getUsuario().getId().equals(idUsuario)){
 
-           return new TopicoDto(topico);
+               topico.setTitulo(dadosAtualizacao.getTitulo());
+               topico.setMensagem(dadosAtualizacao.getMensagem());
+               topico.setEstadoTopico(dadosAtualizacao.getEstadoTopico());
+
+               return new TopicoDto(topico);
+           }else{
+               throw new IllegalArgumentException();
+           }
        }else{
-        throw new IllegalArgumentException("Tópico não encontrado!");
+        throw new EntityNotFoundException();
        }
 
    }

@@ -20,8 +20,9 @@ public class TratadorDeErros {
     @ExceptionHandler({IllegalArgumentException.class})
     public ResponseEntity naoAutorizado(){
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                .body("Usuário não autorizado a deletar esse tópico");
+                .body("Usuário não autorizado a modificar esse tópico");
     }
+
 
     @ExceptionHandler({MethodArgumentNotValidException.class})
     public ResponseEntity tratarErro400(MethodArgumentNotValidException ex){
