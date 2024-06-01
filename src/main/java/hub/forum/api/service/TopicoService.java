@@ -4,12 +4,14 @@ import hub.forum.api.domain.curso.Curso;
 import hub.forum.api.dto.AtualizacaoTopicoDto;
 import hub.forum.api.dto.TopicoDto;
 import hub.forum.api.infra.SecurityFilter;
+import hub.forum.api.infra.TratadorDeErros;
 import hub.forum.api.repository.CursoRepository;
 import hub.forum.api.repository.TopicoRepository;
 import hub.forum.api.repository.UsuarioRepository;
 import hub.forum.api.domain.topico.DadosCadastroTopico;
 import hub.forum.api.domain.topico.Topico;
 import hub.forum.api.domain.usuario.Usuario;
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -36,6 +38,9 @@ public class TopicoService {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
+
+    @Autowired
+    private TratadorDeErros tratadorDeErros;
 
 
 
@@ -91,10 +96,10 @@ public class TopicoService {
             if (topico.getUsuario().getId().equals(idUsuario)){
                 topicoRepository.deleteById(id);
             }else{
-                throw new IllegalArgumentException("Usuário não autorizado a deletar esse tópico");
+                throw new IllegalArgumentException();
             }
         }else{
-            throw new IllegalArgumentException("Tópico não encontrado!");
+            throw new EntityNotFoundException();
         }
    }
 
