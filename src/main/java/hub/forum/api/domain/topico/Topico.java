@@ -42,7 +42,7 @@ public class Topico {
     private Usuario usuario;
 
 
-    @OneToMany(mappedBy = "topico", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "topico", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<Resposta> respostas = new ArrayList<>();
 
