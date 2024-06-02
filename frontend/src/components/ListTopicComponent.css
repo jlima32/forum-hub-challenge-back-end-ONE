@@ -1,0 +1,102 @@
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    opacity: 90%;
+    transition: 0.3s;
+}
+
+.container{
+    min-height: calc(100vh - 50px);
+    padding: 20px 80px;
+}
+
+.container-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 10px;
+    background-color: #666475;
+    border: 1px solid #CCC;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    color: #FFF;
+}
+
+.container-title h4{
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.button-new-topic{
+    background-color: #3CAD7E;
+    color: #FFF;
+    border: none;
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 4px 10px;
+    letter-spacing: 0.8px;
+    cursor: pointer;
+}
+
+.container-content{
+    display: flex;
+    align-items: center;
+    background-color: #FFF;
+    border: 1px solid #E8E7E7;
+    padding: 10px;
+    gap: 10px;
+    color: #464545;
+}
+
+.container-content:hover{
+    background-color: #F6F4F4;
+}
+
+.topic-status{
+    font-size: 30px;
+}
+
+.solved{
+    color: #00B9A0;
+}
+
+.not-solved{
+    color: #E7E4E4
+}
+
+.topic-title h4 a{
+    color: #464545;
+}
+
+.topic-title h4 :hover{
+    text-decoration: underline;
+}
+
+.topic-category-course{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    font-size: 10px;
+    margin: 10px 0;
+    color: #FFF;
+}
+
+.topic-category-name, .topic-course-name{
+    padding: 4px;
+}
+
+.programacao{
+    background-color: #00C86F;
+}
+
+.topic-author{
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.author-name{
+    color: #b70F12;
+}
