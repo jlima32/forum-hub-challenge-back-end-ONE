@@ -60,7 +60,7 @@ public class TopicoService {
     }
 
    public List<TopicoDto> listarTopicos() {
-       Pageable pageable = PageRequest.of(0,10, Sort.by("dataCriacao").ascending());
+       Pageable pageable = PageRequest.of(0,20, Sort.by("dataCriacao").descending());
        Page<Topico> topicosPage = topicoRepository.findAll(pageable);
        return topicosPage.stream()
                .map(TopicoDto::new)

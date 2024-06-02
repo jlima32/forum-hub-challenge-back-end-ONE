@@ -7,6 +7,11 @@ a:hover{
     transition: 0.3s;
 }
 
+section{
+    background-color: #F5F5F5;
+    border: 1px solid #EFEFEF;
+}
+
 .container{
     min-height: calc(100vh - 50px);
     padding: 20px 80px;
@@ -51,6 +56,10 @@ a:hover{
     color: #464545;
 }
 
+.container-content:nth-child(2n){
+    background-color: #FCFCFC;
+}
+
 .container-content:hover{
     background-color: #F6F4F4;
 }
@@ -90,6 +99,14 @@ a:hover{
 
 .programacao{
     background-color: #00C86F;
+}
+
+.devops{
+    background-color: #F16C70;
+}
+
+.front-end{
+    background-color: #23aff0;
 }
 
 .topic-author{
