@@ -21,6 +21,7 @@ public class SecurityConfigurations {
     @Autowired
     private SecurityFilter securityFilter;
 
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return
@@ -28,10 +29,11 @@ public class SecurityConfigurations {
                         .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                         .authorizeHttpRequests(req -> {
                             req.requestMatchers(HttpMethod.POST, "/login").permitAll();
-                            req.requestMatchers(HttpMethod.GET, "/topicos").permitAll();
+                            req.requestMatchers(HttpMethod.GET, "/topicos","/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**").permitAll();
                             req.anyRequest().authenticated();
                         })
                         .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
+
                         .build();
     }
 
