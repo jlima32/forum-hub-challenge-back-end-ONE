@@ -60,10 +60,12 @@ const ListTopicComponent = () => {
               </div>
               <div className="topic-author">
                 <p>
-                  criado por{" "}
-                  <span className="author-name">{topic.autor.nome}</span>{" "}
+                  criado por:
+                  <span className="author-name"> {topic.autor.nome} </span>
+                  em: <span className="author-name"> {topic.dataCriacao}</span>
+                  {" "}
                   {`(${topic.respostas.length}`}
-                  {topic.respostas.length === 1 ? " resposta)" : " respostas)"}
+                  {topic.respostas.length === 1 ? " resposta)" : " respostas) "}
                 </p>
               </div>
             </div>
