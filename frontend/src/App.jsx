@@ -1,4 +1,5 @@
 import './App.css'
+import FooterComponent from './components/FooterComponent'
 import HeaderComponent from './components/HeaderComponent'
 import ListTopicComponent from './components/ListTopicComponent'
 
@@ -8,6 +9,7 @@ function App() {
     <>
       <HeaderComponent />
       <ListTopicComponent />
+      <FooterComponent />
     </>
   )
 }
