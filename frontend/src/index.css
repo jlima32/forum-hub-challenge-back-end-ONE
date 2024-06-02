@@ -6,6 +6,7 @@
 
 body{
     font-family: "Poppins", sans-serif;
+    letter-spacing: 0.6px;
 }
 
 a{
@@ -15,4 +16,23 @@ a{
 a:hover{
     opacity: 90%;
     transition: 0.3s;
+}
+
+
+@media only screen and (max-width: 900px){
+    header{
+        padding: 0 10px;
+    }
+    .container{
+        padding: 20px 10px;
+    }
+}
+
+@media only screen and (min-width: 800px){
+    header{
+        padding: 0 20px;
+    }
+    .container{
+        padding: 20px;
+    }
 }
