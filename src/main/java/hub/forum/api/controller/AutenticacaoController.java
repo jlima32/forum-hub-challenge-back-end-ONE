@@ -1,7 +1,9 @@
 package hub.forum.api.controller;
 
 import hub.forum.api.domain.usuario.DadosAutenticacao;
+import hub.forum.api.domain.usuario.DadosLoginResponse;
 import hub.forum.api.domain.usuario.Usuario;
+import hub.forum.api.dto.UsuarioDto;
 import hub.forum.api.infra.DadosTokenJWT;
 import hub.forum.api.service.TokenService;
 import jakarta.validation.Valid;
@@ -30,9 +32,11 @@ public class AutenticacaoController {
         var authenticationToken = new UsernamePasswordAuthenticationToken(dados.email(), dados.senha());
         var authentication =  manager.authenticate(authenticationToken);
 
-        var tokenJWT = tokenService.gerarToken((Usuario) authentication.getPrincipal());
+        Usuario usuario = (Usuario) authentication.getPrincipal();
+        String tokenJWT = tokenService.gerarToken(usuario);
+        UsuarioDto usuarioDto = new UsuarioDto(usuario);
 
-        return ResponseEntity.ok(new DadosTokenJWT(tokenJWT));
+        return ResponseEntity.ok(new DadosLoginResponse(tokenJWT, usuarioDto));
 
     }
 }
