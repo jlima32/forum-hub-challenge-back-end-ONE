@@ -19,6 +19,35 @@ a:hover{
 }
 
 
+section{
+    background-color: #F5F5F5;
+    border: 1px solid #EFEFEF;
+}
+
+.container{
+    min-height: calc(100vh - 50px);
+    padding: 20px 80px;
+}
+
+.container-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 10px;
+    background-color: #666475;
+    border: 1px solid #CCC;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    color: #FFF;
+}
+
+.container-title h4{
+    font-size: 12px;
+    font-weight: 500;
+}
+
+
+
 @media only screen and (max-width: 900px){
     header{
         padding: 0 10px;
