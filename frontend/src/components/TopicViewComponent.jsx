@@ -1,16 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import './TopicViewComponent.css'
-import { getTopic } from '../services/TopicService'
+import { createReply, getTopic } from '../services/TopicService'
 import { useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 
 const TopicViewComponent = () => {
     
+const navigator = useNavigate();
+
 const {id} = useParams();
 const user = JSON.parse(localStorage.getItem("user"));
 const token = user.token;
 const [topic, setTopic] = useState(null);
 const [loading, setLoading] = useState(true);
+const [mensagem , setMensagem] = useState("");
+const [topicoId, setTopicoId] = useState("");
+const [usuarioId] = useState(user.usuario.id);
+const [solucao] = useState(0);
+
 
 
 useEffect(() => {
@@ -23,7 +31,14 @@ useEffect(() => {
             setLoading(false);
         })
     }
-}, [id, token])
+}, [id, token]);
+
+
+function saveReply(e){
+    e.preventDefault();
+    const reply = {mensagem, topicoId, usuarioId, solucao };
+    createReply(reply, token);
+}
 
 
 if(loading){
@@ -76,14 +91,17 @@ if(loading){
                 ))
             }
 
-            <div className="topic-form-response">
-                <div className="form-response-field">
-                    <textarea className='form-response-text' rows="15" name="" id="" placeholder='O que você acaha disso? '></textarea>
+            <form onSubmit={saveReply}>
+
+                <div className="topic-form-response">
+                    <div className="form-response-field">
+                        <textarea className='form-response-text' rows="15" name="mensagem" id="mensagem" value={mensagem} placeholder='O que você acha disso?' onChange={(e) => { setMensagem(e.target.value); setTopicoId(topic.id) }} required></textarea>
+                    </div>
+                    <div className="form-reply-button">
+                        <button className='button-reply'>Responder</button>
+                    </div>
                 </div>
-                <div className="form-reply-button">
-                    <button className='button-reply'>Responder</button>
-                </div>
-            </div>
+            </form>
 
          </div>
     </section>

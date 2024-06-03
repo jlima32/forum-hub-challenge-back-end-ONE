@@ -25,3 +25,9 @@ export const getTopic = (topicId, token) => axios.get(`${REST_API_BASE_URL}/topi
         'Authorization': `Bearer ${token}`,
     }
   });
+
+  export const createReply = (reply, token) => axios.post(`${REST_API_BASE_URL}/respostas`, reply,  {
+    headers: {
+        'Authorization': `Bearer ${token}`,
+    }
+  });
