@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import LoginComponent from "./LoginComponent";
+import { useNavigate } from 'react-router-dom'
 
 import "./ListTopicComponent.css";
 import { listTopics } from "../services/TopicService";
@@ -7,8 +8,9 @@ import { listTopics } from "../services/TopicService";
 const ListTopicComponent = () => {
   const [topics, setTopics] = useState([]);
   const [user, setUser] = useState(null);
-  
   const[loginOk, setLoginOk] = useState(false);
+
+  const navigator = useNavigate();
 
   useEffect(() => {
     const usuarioLogado = localStorage.getItem('user');
@@ -28,6 +30,11 @@ const ListTopicComponent = () => {
       });
   }, []);
 
+
+  function addNewTopic(){
+    navigator('/add-topic')
+  }
+
   return (
     <section>
       <div className="container">
@@ -37,9 +44,7 @@ const ListTopicComponent = () => {
           </div>
           {
             loginOk ? 
-            <a href="#" className="button-new-topic">
-              Criar Tópico
-            </a> 
+            <button className="button-new-topic" onClick={addNewTopic}>Criar Tópico</button>
             : ""
           }
         </div>
