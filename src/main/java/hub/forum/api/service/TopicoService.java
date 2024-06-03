@@ -1,6 +1,7 @@
 package hub.forum.api.service;
 
 import hub.forum.api.domain.curso.Curso;
+import hub.forum.api.domain.topico.EstadoTopico;
 import hub.forum.api.dto.AtualizacaoTopicoDto;
 import hub.forum.api.dto.TopicoDto;
 import hub.forum.api.infra.SecurityFilter;
@@ -55,6 +56,7 @@ public class TopicoService {
             throw new RuntimeException("Já existe um tópico com o mesmo título e mensagem");
         }
         topico.setDataCriacao(LocalDateTime.now());
+        topico.setEstadoTopico(EstadoTopico.valueOf("ABERTO"));
         topicoRepository.save(topico);
         return new TopicoDto(topico);
     }

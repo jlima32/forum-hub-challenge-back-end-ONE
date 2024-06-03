@@ -8,7 +8,7 @@ public record DadosCadastroTopico(
         String titulo,
         @NotBlank(message = "A mensagem é obrigatória")
         String mensagem,
-        @NotNull(message = "O Status do tópico é obrigatório")
+
         EstadoTopico estadoTopico,
         @NotNull(message = "O curso é obrigatório")
         Long cursoId,
