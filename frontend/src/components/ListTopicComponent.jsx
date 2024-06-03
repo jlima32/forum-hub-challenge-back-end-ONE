@@ -1,10 +1,22 @@
 import React, { useEffect, useState } from "react";
+import LoginComponent from "./LoginComponent";
 
 import "./ListTopicComponent.css";
 import { listTopics } from "../services/TopicService";
 
 const ListTopicComponent = () => {
   const [topics, setTopics] = useState([]);
+  const [user, setUser] = useState(null);
+  
+  const[loginOk, setLoginOk] = useState(false);
+
+  useEffect(() => {
+    const usuarioLogado = localStorage.getItem('user');
+    if (usuarioLogado) {
+      setUser(JSON.parse(usuarioLogado));
+      setLoginOk(true);
+    }
+  }, [])
 
   useEffect(() => {
     listTopics()
@@ -23,9 +35,13 @@ const ListTopicComponent = () => {
           <div className="container-title">
             <h4>Tópicos</h4>
           </div>
-          <a href="#" className="button-new-topic">
-            Criar Tópico
-          </a>
+          {
+            loginOk ? 
+            <a href="#" className="button-new-topic">
+              Criar Tópico
+            </a> 
+            : ""
+          }
         </div>
         {topics.map((topic) => (
           <div className="container-content" key={topic.id}>

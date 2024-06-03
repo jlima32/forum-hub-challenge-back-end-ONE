@@ -26,6 +26,7 @@ const LoginComponent = () => {
           (response) => {
             localStorage.setItem('user', JSON.stringify(response.data));
             setLoginOk(true);
+            location.reload();
           },
           () => {
             alert('erro no login');
