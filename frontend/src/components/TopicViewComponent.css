@@ -1,0 +1,99 @@
+.container-topic-content, .topic-message-response, .topic-form-response{
+    background-color: #FFF;
+    border: 1px solid #F3F3F3;
+    color: #666475;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    
+}
+
+
+.container-topic-content-header{
+    display: flex;
+    align-items: center;
+    padding: 10px 10px;
+    gap: 10px;
+    border-bottom: solid 1px #F3F3F3;
+}
+
+.container-topic-content-header i{
+    font-size: 30px;
+}
+
+.topic-content-header-details{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+
+.topic-message{
+    padding: 10px;
+    text-align: justify;
+    font-size: 14px;
+    letter-spacing: 0;
+}
+
+.topic-message-response, .topic-form-response {
+    margin-top: 20px;
+    border-radius: 6px;
+    letter-spacing: 0;
+}
+
+.topic-message-response-header{
+    font-size: 12px;
+    padding: 10px;
+    border-bottom: solid 1px #F3F3F3;
+    color: #A59F9F
+}
+
+.topic-message-response-content{
+    padding: 10px;
+    border-bottom: solid 1px #F3F3F3;
+    font-size: 14px;
+    text-align: justify;
+
+}
+
+.topic-message-response-date{
+    text-align: right;
+    padding: 10px;
+    font-size: 12px;
+}
+
+
+.topic-form-response{
+    padding: 20px 10px ;
+}
+
+.form-response-text{
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid #D1CECE;
+    padding: 10px;
+    outline: 0;
+    color: #666475;
+    font-size: 16px;
+}
+
+.form-reply-button{
+    margin-top: 12px;
+    text-align: right;
+}
+
+.button-reply{
+    padding: 8px 16px;
+    background-color: #FFF;
+    color: #6CE194;
+    border: 2px solid #6CE194;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.button-reply:hover{
+    color:#FFF;
+    background-color: #6CE194;
+    transition: 0.4s;
+}

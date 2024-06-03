@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 import "./ListTopicComponent.css";
 import { listTopics } from "../services/TopicService";
@@ -63,7 +63,7 @@ const ListTopicComponent = () => {
             <div className="topic-data">
               <div className="topic-title">
                 <h4>
-                  <a href="">{topic.titulo}</a>
+                  <Link to={`/topic/${topic.id}`}>{topic.titulo}</Link>
                 </h4>
               </div>
               <div className="topic-category-course">

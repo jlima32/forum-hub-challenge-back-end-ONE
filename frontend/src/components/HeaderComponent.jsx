@@ -7,7 +7,7 @@ const HeaderComponent = () => {
   return (
         <header>
             <div className="logo">
-                <h1><a href="#">Fórum<span>Hub</span></a></h1>
+                <h1><a href="/">Fórum<span>Hub</span></a></h1>
             </div>
             <LoginComponent />
         </header>

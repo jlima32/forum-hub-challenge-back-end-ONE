@@ -4,6 +4,7 @@ import HeaderComponent from './components/HeaderComponent'
 import ListTopicComponent from './components/ListTopicComponent'
 import { BrowserRouter, Routes, Route  } from 'react-router-dom'
 import TopicComponent from './components/TopicComponent'
+import TopicViewComponent from './components/TopicViewComponent'
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
           <Routes>
             <Route path='/' element={ <ListTopicComponent /> } ></Route>
             <Route path='/add-topic' element={ <TopicComponent /> }></Route>
+            <Route path='/topic/:id' element={ <TopicViewComponent /> }></Route>
           </Routes>
         <FooterComponent />
       </BrowserRouter>
