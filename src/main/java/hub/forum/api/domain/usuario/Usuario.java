@@ -1,17 +1,23 @@
 package hub.forum.api.domain.usuario;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import hub.forum.api.infra.SecurityConfigurations;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.Collection;
 import java.util.List;
+
+
+
 
 @Table(name = "usuarios")
 @Entity(name = "Usuario")
@@ -20,7 +26,6 @@ import java.util.List;
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 public class Usuario implements UserDetails {
-
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonIgnore
     private Long id;
@@ -33,6 +38,11 @@ public class Usuario implements UserDetails {
         this.nome = dados.nome();
         this.email = dados.email();
         this.senha = dados.senha();
+
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     @JsonIgnore

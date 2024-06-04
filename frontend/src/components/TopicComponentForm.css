@@ -1,0 +1,81 @@
+.new-topic-content{
+    padding: 10px;
+    background-color: #FFF;
+    border: 1px solid #F3F3F3;
+    color: #666475;
+}
+
+.form-new-topic{
+    width: 100%;
+}
+
+
+.select-prefix{
+    width: 25%;
+    outline: 0;
+    border: 1px solid #D1CECE;
+    padding: 9px;
+    color: #464545;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    background-color: #f6f4f4;
+
+}
+
+.input-prefix{
+    width: 75%;
+    margin-left: -5px;
+    border: 1px solid #D1CECE;
+    padding: 10px;
+    outline: 0;
+    color: #464545;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-left: 0;
+}
+
+
+.select-category-name, .select-course-name{
+    margin-top: 20px;
+    width: 100%;
+    outline: 0;
+    border: 1px solid #D1CECE;
+    padding: 9px;
+    color: #464545;
+    border-radius: 6px;
+    background-color: #f6f4f4;
+
+}
+
+.new-topic-textarea{
+    margin-top: 20px;
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid #D1CECE;
+    padding: 10px;
+    outline: 0;
+    color: #666475;
+    font-size: 16px;
+}
+
+
+.form-reply-button{
+    text-align: right;
+}
+
+
+.button-create-topic{
+    padding: 8px 16px;
+    background-color: #2f46dc;
+    color: #FFF;
+    border: 2px solid #2f46dc;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.button-create-topic:hover{
+    opacity: 80%;
+    transition: 0.3s;
+}

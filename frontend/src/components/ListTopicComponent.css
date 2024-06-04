@@ -1,0 +1,84 @@
+
+.button-new-topic{
+    background-color: #3CAD7E;
+    color: #FFF;
+    border: none;
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 4px 10px;
+    letter-spacing: 0.8px;
+    cursor: pointer;
+}
+
+.container-content{
+    display: flex;
+    align-items: center;
+    background-color: #FFF;
+    border: 1px solid #E8E7E7;
+    padding: 10px;
+    gap: 10px;
+    color: #464545;
+}
+
+.container-content:nth-child(2n){
+    background-color: #FCFCFC;
+}
+
+.container-content:hover{
+    background-color: #F6F4F4;
+}
+
+.topic-status{
+    font-size: 30px;
+}
+
+.solved{
+    color: #00B9A0;
+}
+
+.not-solved{
+    color: #E7E4E4
+}
+
+.topic-title h4 a{
+    color: #464545;
+}
+
+.topic-title h4 :hover{
+    text-decoration: underline;
+}
+
+.topic-category-course{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    font-size: 10px;
+    margin: 10px 0;
+    color: #FFF;
+}
+
+.topic-category-name, .topic-course-name{
+    padding: 4px;
+}
+
+.programacao{
+    background-color: #00C86F;
+}
+
+.devops{
+    background-color: #F16C70;
+}
+
+.front-end{
+    background-color: #23aff0;
+}
+
+.topic-author{
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.author-name{
+    color: #b70F12;
+}
