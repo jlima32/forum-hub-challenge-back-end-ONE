@@ -6,6 +6,7 @@ import hub.forum.api.dto.TopicoDto;
 import hub.forum.api.dto.UsuarioDto;
 import hub.forum.api.service.TopicoService;
 import hub.forum.api.domain.topico.DadosCadastroTopico;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +21,7 @@ import java.util.List;
 @RestController
 @RequestMapping("topicos")
 @Validated
+@SecurityRequirement(name = "bearer-key")
 public class TopicoController {
 
     @Autowired
