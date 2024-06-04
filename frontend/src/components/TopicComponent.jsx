@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./TopicComponentForm.css";
-import { createTopic, getCursos, updateTopic } from "../services/TopicService";
+import { createTopic, getCursos, getTopic, updateTopic } from "../services/TopicService";
 import { useNavigate, useParams } from "react-router-dom";
 
 const TopicComponent = () => {
@@ -18,6 +18,23 @@ const TopicComponent = () => {
   const [estadoTopico, setestadoTopico] = useState("");
   const [cursos, setCursos] = useState([]);
 
+  useEffect(() => {
+    
+    if(id){
+      getTopic(id, token).then((response) => {
+        if(user.usuario.id !== response.data.autor.id){
+          navigator("/");
+        }
+        setTituloSemPrefixo(response.data.titulo);
+        setMensagem(response.data.mensagem);
+      }).catch(error => {
+        navigator("/");
+        console.log(error);
+      })
+    }
+
+  },[id,token])
+
 
   useEffect(() => {
     getCursos(token)
@@ -30,6 +47,8 @@ const TopicComponent = () => {
   }, [token]);
 
 
+
+
   function saveOrUpdateTopic(e) {
     e.preventDefault();
     const titulo = `${prefixo} ${tituloSemPrefixo}`;
@@ -37,7 +56,6 @@ const TopicComponent = () => {
 
     if(id){
       updateTopic(id, token, topic).then((response) =>{
-        console.log(response.data);
       })
     }else{
       createTopic(topic, token).then(() => {
@@ -53,6 +71,14 @@ const TopicComponent = () => {
       return <h4>Criar Tópico</h4>
     }
   }
+
+  function isHidden(){
+    if(id){
+      return true;
+    }
+  }
+
+  
 
   return (
     <section>
@@ -92,21 +118,23 @@ const TopicComponent = () => {
                 onChange={(e) => setTituloSemPrefixo(e.target.value)}
                 required
               />
-              <select
-                value={cursoId}
-                name="course"
-                id="cursos"
-                className="select-course-name"
-                onChange={(e) => setCursoId(e.target.value)}
-                required
-              >
-                <option value="">Selecione um curso</option>
-                {cursos.map((curso) => (
-                  <option key={curso.id} value={curso.id}>
-                    {curso.nome}
-                  </option>
-                ))}
-              </select>
+              {!isHidden() && (
+                  <select 
+                  value={cursoId}
+                  name="course"
+                  id="cursos"
+                  className="select-course-name"
+                  onChange={(e) => setCursoId(e.target.value)}
+                  required
+                  >
+                  <option value="">Selecione um curso</option>
+                  {cursos.map((curso) => (
+                    <option key={curso.id} value={curso.id}>
+                      {curso.nome}
+                    </option>
+                  ))}
+                </select>
+              )}
               <textarea
                 name="mensagem"
                 value={mensagem}
