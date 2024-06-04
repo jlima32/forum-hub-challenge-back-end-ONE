@@ -42,7 +42,9 @@ const TopicViewComponent = () => {
   }
 
   function removeTopic(id){
-    deleteTopic(id,token);
+    if(topic.autor.id === user.usuario.id){
+      deleteTopic(id,token);
+    }
     navigator("/");
   }
 
