@@ -26,6 +26,37 @@
     gap: 4px;
 }
 
+.edit-buttons{
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+
+.button-edit-topic, .button-del-topic{
+    color: #FFF;
+    border: none;
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 4px 10px;
+    letter-spacing: 0.8px;
+    cursor: pointer;
+    opacity: 85%;
+}
+
+.button-edit-topic:hover, .button-del-topic:hover{
+    opacity: 100%;
+    transition: 0.3s;
+}
+
+.button-edit-topic{
+    background-color: rgb(95, 79, 247);
+}
+
+.button-del-topic{
+    background-color: rgb(200, 58, 58);
+}
 
 .topic-message{
     padding: 10px;

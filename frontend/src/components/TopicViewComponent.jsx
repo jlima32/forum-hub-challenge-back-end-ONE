@@ -53,12 +53,21 @@ const TopicViewComponent = () => {
             <h4> {`Referente ao curso ${topic.curso.nome}`}</h4>
           </div>
           {user.usuario.id === topic.autor.id ? (
-            <button
-              className="button-new-topic"
-              onClick={() => updateTopic(topic.id)}
-            >
-              Editar Tópico
-            </button>
+            <div className="edit-buttons">
+
+              <button
+                className="button-edit-topic"
+                onClick={() => updateTopic(topic.id)}
+                >
+                Editar
+              </button>
+              <button
+                className="button-del-topic"
+                onClick={() => updateTopic(topic.id)}
+                >
+                Excluir
+              </button>
+            </div>
           ) : (
             ""
           )}
