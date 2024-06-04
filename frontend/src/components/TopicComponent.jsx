@@ -55,11 +55,12 @@ const TopicComponent = () => {
     const topic = { titulo, mensagem, usuarioId, cursoId, estadoTopico };
 
     if(id){
-      updateTopic(id, token, topic).then((response) =>{
+      updateTopic(id, token, topic).then(() =>{
+        navigator(`/topic/${id}`);
       })
     }else{
       createTopic(topic, token).then(() => {
-      navigator("/");
+        navigator("/");
     });
     }
   }
