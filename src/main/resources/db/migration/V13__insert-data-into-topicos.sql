@@ -15,7 +15,7 @@ VALUES ('[Dúvida] Como integrar React.js com uma API RESTful?', 'Gostaria de sa
 
 
 INSERT INTO topicos (titulo, mensagem, data_criacao, estado_topico, curso_id, usuario_id)
-VALUES ('Dúvida] Dúvida sobre loops em PHP', 'Estou com dificuldades para entender o funcionamento de loops em PHP. Alguém poderia me explicar?', NOW(), 'RESOLVIDO', 6, 3);
+VALUES ('[Dúvida] Dúvida sobre loops em PHP', 'Estou com dificuldades para entender o funcionamento de loops em PHP. Alguém poderia me explicar?', NOW(), 'RESOLVIDO', 6, 3);
 
 
 INSERT INTO topicos (titulo, mensagem, data_criacao, estado_topico, curso_id, usuario_id)
