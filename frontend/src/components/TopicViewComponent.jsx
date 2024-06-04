@@ -2,12 +2,10 @@ import React, { useEffect, useState } from 'react'
 import './TopicViewComponent.css'
 import { createReply, getTopic } from '../services/TopicService'
 import { useParams } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 
 const TopicViewComponent = () => {
-    
-const navigator = useNavigate();
 
 const {id} = useParams();
 const user = JSON.parse(localStorage.getItem("user"));
@@ -18,6 +16,7 @@ const [mensagem , setMensagem] = useState("");
 const [topicoId, setTopicoId] = useState("");
 const [usuarioId] = useState(user.usuario.id);
 const [solucao] = useState(0);
+const navigator = useNavigate();
 
 
 
@@ -38,11 +37,16 @@ function saveReply(e){
     e.preventDefault();
     const reply = {mensagem, topicoId, usuarioId, solucao };
     createReply(reply, token);
+    window.location.reload()
+}
+
+function updateTopic(id){
+    navigator(`/update-topic/${id}`)
 }
 
 
 if(loading){
-    return <p> carregando dados</p>
+    return <p>...</p>
 }
 
   return (
@@ -52,7 +56,14 @@ if(loading){
             <div className="container-header">
                 <div className="container-title">
                     <h4> {`Referente ao curso ${topic.curso.nome}`}</h4>
-                </div>                
+                </div> 
+                {
+                    user.usuario.id === topic.autor.id 
+                    ?
+                    <button className="button-new-topic" onClick={()=>updateTopic(topic.id)}>Editar Tópico</button>
+                    : ""
+                }
+               
             </div> 
 
             <div className="container-topic-content">

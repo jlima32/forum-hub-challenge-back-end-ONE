@@ -56,7 +56,6 @@ public class TopicoService {
             throw new RuntimeException("Já existe um tópico com o mesmo título e mensagem");
         }
         topico.setDataCriacao(LocalDateTime.now());
-        topico.setEstadoTopico(EstadoTopico.valueOf("ABERTO"));
         topicoRepository.save(topico);
         return new TopicoDto(topico);
     }

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./TopicComponentForm.css";
-import { createTopic, getCursos } from "../services/TopicService";
-import { useNavigate } from "react-router-dom";
+import { createTopic, getCursos, updateTopic } from "../services/TopicService";
+import { useNavigate, useParams } from "react-router-dom";
 
 const TopicComponent = () => {
+  const {id} = useParams();
   const user = JSON.parse(localStorage.getItem("user"));
   const token = user.token;
   const navigator = useNavigate();
@@ -14,7 +15,9 @@ const TopicComponent = () => {
   const [mensagem, setMensagem] = useState("");
   const [usuarioId] = useState(user.usuario.id);
   const [cursoId, setCursoId] = useState("");
+  const [estadoTopico, setestadoTopico] = useState("");
   const [cursos, setCursos] = useState([]);
+
 
   useEffect(() => {
     getCursos(token)
@@ -27,13 +30,28 @@ const TopicComponent = () => {
   }, [token]);
 
 
-  function saveTopic(e) {
+  function saveOrUpdateTopic(e) {
     e.preventDefault();
     const titulo = `${prefixo} ${tituloSemPrefixo}`;
-    const topic = { titulo, mensagem, usuarioId, cursoId };
-    createTopic(topic, token).then(() => {
+    const topic = { titulo, mensagem, usuarioId, cursoId, estadoTopico };
+
+    if(id){
+      updateTopic(id, token, topic).then((response) =>{
+        console.log(response.data);
+      })
+    }else{
+      createTopic(topic, token).then(() => {
       navigator("/");
     });
+    }
+  }
+
+  function title(){
+    if(id){
+      return <h4>Editar Tópico</h4>
+    }else{
+      return <h4>Criar Tópico</h4>
+    }
   }
 
   return (
@@ -41,11 +59,13 @@ const TopicComponent = () => {
       <div className="container">
         <div className="container-header">
           <div className="container-title">
-            <h4>Criar Tópico</h4>
+            {
+              title()
+            }
           </div>
         </div>
 
-        <form onSubmit={saveTopic}>
+        <form onSubmit={saveOrUpdateTopic}>
           <div className="new-topic-content">
             <div className="form-new-topic">
               <select
@@ -97,10 +117,22 @@ const TopicComponent = () => {
                 onChange={(e) => setMensagem(e.target.value)}
                 required
               ></textarea>
+              <select
+                name="status"
+                id="status"
+                value={estadoTopico}
+                onChange={(e) => setestadoTopico(e.target.value)}
+                className="select-course-name"
+                required
+              >
+                <option value="">Status do tópico</option>
+                <option value="ABERTO">Aberto</option>
+                <option value="RESOLVIDO">Resolvido</option>
+              </select>
             </div>
             <div className="form-reply-button">
               <button type="submit" className="button-create-topic">
-                Criar Tópico
+                Enviar
               </button>
             </div>
           </div>

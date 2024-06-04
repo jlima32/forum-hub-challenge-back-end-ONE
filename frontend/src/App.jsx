@@ -15,6 +15,7 @@ function App() {
           <Routes>
             <Route path='/' element={ <ListTopicComponent /> } ></Route>
             <Route path='/add-topic' element={ <TopicComponent /> }></Route>
+            <Route path='/update-topic/:id' element={ <TopicComponent /> }></Route>
             <Route path='/topic/:id' element={ <TopicViewComponent /> }></Route>
           </Routes>
         <FooterComponent />

@@ -31,3 +31,9 @@ export const getTopic = (topicId, token) => axios.get(`${REST_API_BASE_URL}/topi
         'Authorization': `Bearer ${token}`,
     }
   });
+
+  export const updateTopic = (topicId, token, topic) => axios.put(`${REST_API_BASE_URL}/topicos/${topicId}`, {
+    headers: {
+        'Authorization': `Bearer ${token}`,
+    }
+  }, topic);

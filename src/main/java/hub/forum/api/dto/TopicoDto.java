@@ -34,7 +34,7 @@ public class TopicoDto {
         this.dataCriacao = topico.getDataCriacao().format(formatter);
         this.autor = new UsuarioDto(topico.getUsuario());
         this.curso = new CursoDto(topico.getCurso());
-        this.status = String.valueOf(EstadoTopico.fromString(String.valueOf(topico.getEstadoTopico())));
+        this.status = String.valueOf(topico.getEstadoTopico());
         this.respostas = topico.getRespostas().stream()
                 .map(RespostaDto::new)
                 .collect(Collectors.toList());
