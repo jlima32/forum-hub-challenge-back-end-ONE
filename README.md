@@ -3,7 +3,7 @@
 
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white) ![Spring](https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white) ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white) ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens) ![Swagger](https://img.shields.io/badge/-Swagger-%23Clojure?style=for-the-badge&logo=swagger&logoColor=white)
 
-> Projeto desenvolvido como parte do desafio Forum Hub da Alura, que propõe a construção de uma API RESTful para um fórum interativo.Este projeto é um desafio prático da ONE (Oracle Next Education) para aplicar e consolidar conhecimentos em Java, Spring Boot e desenvolvimento de APIs.
+> Projeto desenvolvido como parte do desafio Forum Hub da Alura, que propõe a construção de uma API RESTful para um fórum interativo. Este projeto é um desafio prático da ONE (Oracle Next Education) para aplicar e consolidar conhecimentos em Java, Spring Boot e desenvolvimento de APIs.
 
 ### 💻 Funcionalidades
 
@@ -49,11 +49,13 @@ A interface do Swagger fornece uma documentação interativa, permitindo que voc
 Para facilitar a familiarização com a API, alguns usuários, tópicos, cursos e respostas já foram adicionados ao banco de dados MySQL. Você pode usar esses dados predefinidos para testar as funcionalidades da API.
 
 **Usuário de Teste**
+
 Você pode fazer o primeiro login com as seguintes credenciais:
 - **Email:** user@email.com
 - **Senha:** user1234
 
 **Exemplos de Tópicos, Cursos e Respostas**
+
 Além do usuário de teste, também foram adicionados exemplos de tópicos, cursos e respostas ao banco de dados MySQL. Esses exemplos podem ser utilizados para explorar e testar os endpoints da API sem a necessidade de adicionar novos dados inicialmente.
 
 
