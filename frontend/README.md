@@ -24,6 +24,7 @@ npm run dev
 ```
 
 4. Acesse a Aplicação:
+
 Abra o navegador e acesse a URL fornecida no terminal: http://localhost:5500/
 
 *Certifique-se de que o backend da API esteja rodando localmente em http://localhost:8080 para que o frontend possa consumir os endpoints da API corretamente.*
