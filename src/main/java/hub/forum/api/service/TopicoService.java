@@ -1,10 +1,8 @@
 package hub.forum.api.service;
 
 import hub.forum.api.domain.curso.Curso;
-import hub.forum.api.domain.topico.EstadoTopico;
 import hub.forum.api.dto.AtualizacaoTopicoDto;
 import hub.forum.api.dto.TopicoDto;
-import hub.forum.api.infra.SecurityFilter;
 import hub.forum.api.infra.TratadorDeErros;
 import hub.forum.api.repository.CursoRepository;
 import hub.forum.api.repository.TopicoRepository;
@@ -13,13 +11,11 @@ import hub.forum.api.domain.topico.DadosCadastroTopico;
 import hub.forum.api.domain.topico.Topico;
 import hub.forum.api.domain.usuario.Usuario;
 import jakarta.persistence.EntityNotFoundException;
-import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

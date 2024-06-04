@@ -19,18 +19,16 @@ const [solucao] = useState(0);
 const navigator = useNavigate();
 
 
-
 useEffect(() => {
     if(id){
         getTopic(id,token).then((response) =>{
             setTopic(response.data);
             setLoading(false);
-        }).catch(error => {
-            console.error(error);
+        }).catch(() => {
             setLoading(false);
         })
     }
-}, [id, token]);
+}, [id, token, navigator]);
 
 
 function saveReply(e){
