@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./TopicViewComponent.css";
-import { createReply, getTopic } from "../services/TopicService";
+import { createReply, deleteTopic, getTopic } from "../services/TopicService";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
@@ -41,6 +41,11 @@ const TopicViewComponent = () => {
     navigator(`/update-topic/${id}`);
   }
 
+  function removeTopic(id){
+    deleteTopic(id,token);
+    navigator("/");
+  }
+
   if (loading) {
     return <p>...</p>;
   }
@@ -63,7 +68,7 @@ const TopicViewComponent = () => {
               </button>
               <button
                 className="button-del-topic"
-                onClick={() => updateTopic(topic.id)}
+                onClick={() => removeTopic(topic.id)}
                 >
                 Excluir
               </button>

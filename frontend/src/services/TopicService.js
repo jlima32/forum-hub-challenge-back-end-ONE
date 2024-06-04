@@ -37,3 +37,9 @@ export const getTopic = (topicId, token) => axios.get(`${REST_API_BASE_URL}/topi
         'Authorization': `Bearer ${token}`,
     }
   });
+
+  export const deleteTopic = (topicId, token) => axios.delete(`${REST_API_BASE_URL}/topicos/${topicId}`, {
+    headers: {
+        'Authorization': `Bearer ${token}`,
+    }
+  });
