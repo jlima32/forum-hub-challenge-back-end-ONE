@@ -88,3 +88,7 @@ Abra o navegador e acesse a URL fornecida no terminal: http://localhost:5500/
 
 *Certifique-se de que o backend da API esteja rodando localmente em http://localhost:8080 para que o frontend possa consumir os endpoints da API corretamente.*
 
+![home](https://github.com/jlima32/forum-hub-challenge-back-end-ONE/assets/110911412/68740e29-19b9-4688-ae25-dce6e2fe5e83) ![topicos](https://github.com/jlima32/forum-hub-challenge-back-end-ONE/assets/110911412/d907beae-5b3f-4c77-92b3-7505f4a6f761)
+
+
+
