@@ -29,7 +29,7 @@ const LoginComponent = () => {
             location.reload();
           },
           () => {
-            alert('erro no login');
+            alert('Por favor verifique se o "Email" e "Senha" digitados estão corretos.');
           }
         );
     
