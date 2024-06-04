@@ -1,8 +1,29 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### 💻 Front-end
 
-Currently, two official plugins are available:
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+>O frontend permite aos usuários interagir de maneira amigável com a API, possibilitando a criação, visualização e resposta de tópicos e a autenticação de usuários.
+
+#### ⚙️ Instalação e Execução
+
+
+1. Com o repositório já clonado navegue até a pasta do frontend:
+```bash
+cd frontend
+```
+
+2. Instale as Dependências:
+```bash
+npm install
+```
+
+3. Execute o Projeto:
+```bash
+npm run dev
+```
+
+4. Acesse a Aplicação:
+Abra o navegador e acesse a URL fornecida no terminal: http://localhost:5500/
+
+*Certifique-se de que o backend da API esteja rodando localmente em http://localhost:8080 para que o frontend possa consumir os endpoints da API corretamente.*
