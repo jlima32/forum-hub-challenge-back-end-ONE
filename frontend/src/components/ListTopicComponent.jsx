@@ -34,6 +34,9 @@ const ListTopicComponent = () => {
     navigator('/add-topic')
   }
 
+  if(loginOk){
+    
+
   return (
     <section>
       <div className="container">
@@ -94,6 +97,17 @@ const ListTopicComponent = () => {
       </div>
     </section>
   );
+}else{
+  return (
+    <section>
+      <div className="container">
+        <div className="container-content">
+          <p>Para acessar os tópicos e participar das discussões, por favor, faça login na sua conta.</p>
+        </div>
+      </div>
+    </section>
+  )
+}
 };
 
 export default ListTopicComponent;

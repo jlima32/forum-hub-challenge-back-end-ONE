@@ -4,6 +4,7 @@ import { createTopic, getCursos, getTopic, updateTopic } from "../services/Topic
 import { useNavigate, useParams } from "react-router-dom";
 
 const TopicComponent = () => {
+  
   const {id} = useParams();
   const user = JSON.parse(localStorage.getItem("user"));
   const token = user.token;
