@@ -54,11 +54,6 @@ Você pode fazer o primeiro login com as seguintes credenciais:
 - **Email:** user@email.com
 - **Senha:** user1234
 
-**Exemplos de Tópicos, Cursos e Respostas**
-
-Além do usuário de teste, também foram adicionados exemplos de tópicos, cursos e respostas ao banco de dados MySQL. Esses exemplos podem ser utilizados para explorar e testar os endpoints da API sem a necessidade de adicionar novos dados inicialmente.
-
-
 ### 💻 Front-end
 
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
